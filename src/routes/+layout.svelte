@@ -14,7 +14,7 @@
 
 	<footer>
 		<p>
-			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about SvelteKit
+			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about Corentin Jouan
 		</p>
 	</footer>
 </div>
