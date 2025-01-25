@@ -1,6 +1,7 @@
 <script>
 	import ThreeScene from '../lib/ThreeScene.svelte';
 	import ThreeFromUnity from '../lib/ThreeFromUnity.svelte';
+	import Normalmaps from '../lib/Normalmaps.svelte';
 </script>
 
 <svelte:head>
@@ -16,6 +17,9 @@
 	</div>
 	<div class="component">
 		<ThreeFromUnity />
+	</div>
+	<div class="component">
+		<Normalmaps />
 	</div>
 </div>
 

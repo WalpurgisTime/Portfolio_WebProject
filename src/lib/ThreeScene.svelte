@@ -24,6 +24,8 @@
 		controls.dampingFactor = 0.25; // Damping factor
 		controls.screenSpacePanning = false; // Disable panning
 
+
+
 		const loader = new GLTFLoader();
 		loader.load('/models/untitled.gltf', (gltf) => {
 			model = gltf.scene;
@@ -86,7 +88,6 @@
 		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 		scene.add(ambientLight);
 
-		camera.position.set(0, 1.6, 3);
 
 		const animate = () => {
 			requestAnimationFrame(animate);
