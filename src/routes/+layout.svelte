@@ -12,7 +12,9 @@
 
 
 	<main>
-		{@render children()}
+		<div class="centered-content">
+			{@render children()}
+		</div>
 	</main>
 
 
@@ -30,6 +32,7 @@
 
 	.app {
 		display: flex;
+		justify-content: center;
 		flex-direction: column;
 		min-height: 100vh;
 	}
@@ -45,6 +48,15 @@
 		margin: 0 auto;
 		box-sizing: border-box;
 	}
+
+  .centered-content {
+      display: flex;
+      justify-content: center; /* Centre horizontalement */
+      align-items: center; /* Centre verticalement */
+      width: 100%; /* Largeur du conteneur */
+      height: 100%; /* Hauteur du conteneur */
+      min-height: calc(100vh - 64px); /* Assure que le contenu occupe tout l’espace disponible (moins footer/header si besoin) */
+  }
 
 	footer {
 		display: flex;

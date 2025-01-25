@@ -7,9 +7,13 @@
 	let container;
 	let model;
 	let waterMaterial;
+	let angle = 0;
+	let targetAngle = 0;
 
 	onMount(() => {
 		const scene = new THREE.Scene();
+		scene.background = new THREE.Color(0x87CEEB); // Set background color to sky blue
+
 		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -54,7 +58,7 @@
       color += sin(p.x * 10.0 + time) * 0.5 + 0.5;
       color += sin(p.y * 10.0 + time) * 0.5 + 0.5;
       color *= vWave;
-      gl_FragColor = vec4(0.0, 0.0, color, 1.0); // Blue color
+      gl_FragColor = vec4(0.0, 0.0, color, 1.0);
      }
     `
 			});
@@ -79,7 +83,7 @@
 		scene.add(directionalLight);
 
 		// Add ambient light to brighten the background
-		const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 		scene.add(ambientLight);
 
 		camera.position.set(0, 1.6, 3);
@@ -89,18 +93,58 @@
 			if (waterMaterial) {
 				waterMaterial.uniforms.time.value += 0.05; // Update time uniform
 			}
+			angle += (targetAngle - angle) * 0.1; // Smooth the angle change
+			const a = 5; // Semi-major axis
+			const b = 3; // Semi-minor axis
+			const x = a * Math.cos(angle);
+			const z = b * Math.sin(angle);
+			if (model) {
+				model.rotation.y = angle; // Rotate the model along the Y-axis
+				model.position.set(x, 0, z);
+			}
 			controls.update(); // Update controls
 			renderer.render(scene, camera);
 		};
 		animate();
+
+		// Add event listener for mouse wheel
+		window.addEventListener('wheel', (event) => {
+			targetAngle += event.deltaY * 0.01; // Adjust the speed as needed
+		});
+
+		// Add event listener for window resize
+		window.addEventListener('resize', () => {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize(window.innerWidth, window.innerHeight);
+		});
+
+		console.log('Three.js scene initialized');
 	});
 </script>
 
-<div bind:this={container} class="three-container"></div>
+<div class="page-wrapper">
+	<div bind:this={container} class="three-container"></div>
+</div>
 
 <style>
-    .three-container {
-        width: 100%;
+    .page-wrapper {
+        width: 100vw;
         height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .three-container {
+        width: 700px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff; /* Fond clair */
+        border-radius: 12px; /* Coins arrondis */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre plus marquée */
+        overflow: hidden; /* Évite les débordements visuels */
     }
 </style>
