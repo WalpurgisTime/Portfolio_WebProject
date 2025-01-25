@@ -1,3 +1,5 @@
+
+<!--
 <svelte:head>
 	<title>How to play Sverdle</title>
 	<meta name="description" content="How to play Sverdle" />
@@ -93,3 +95,4 @@
 		margin: 0 1em;
 	}
 </style>
+-->

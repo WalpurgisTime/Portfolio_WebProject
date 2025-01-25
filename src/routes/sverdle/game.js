@@ -1,9 +1,7 @@
-import { words, allowed } from './words.server';
+/*import { words, allowed } from './words.server';
 
 export class Game {
-	/**
-	 * Create a game object from the player's cookie, or initialise a new game
-	 */
+
 	constructor(serialized = undefined) {
 		if (serialized) {
 			const [index, guesses, answers] = serialized.split('-');
@@ -20,10 +18,7 @@ export class Game {
 		this.answer = words[this.index];
 	}
 
-	/**
-	 * Update game state based on a guess of a five-letter word. Returns
-	 * true if the guess was valid, false otherwise
-	 */
+
 	enter(letters) {
 		const word = letters.join('');
 		const valid = allowed.has(word);
@@ -61,10 +56,8 @@ export class Game {
 		return true;
 	}
 
-	/**
-	 * Serialize game state so it can be set as a cookie
-	 */
 	toString() {
 		return `${this.index}-${this.guesses.join(' ')}-${this.answers.join(' ')}`;
 	}
 }
+*/

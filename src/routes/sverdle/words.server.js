@@ -1,4 +1,4 @@
-/** The list of possible words */
+/*
 export const words = [
 	'aback',
 	'abase',
@@ -12978,3 +12978,4 @@ export const allowed = new Set([
 	'zymes',
 	'zymic'
 ]);
+*/

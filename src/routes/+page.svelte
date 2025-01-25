@@ -1,3 +1,5 @@
+
+<!--
 <script>
 	import Counter from './Counter.svelte';
 	import welcome from '$lib/images/svelte-welcome.webp';
@@ -29,6 +31,7 @@
 </section>
 
 <style>
+		/*
 	section {
 		display: flex;
 		flex-direction: column;
@@ -56,4 +59,6 @@
 		top: 0;
 		display: block;
 	}
+	*/
 </style>
+-->

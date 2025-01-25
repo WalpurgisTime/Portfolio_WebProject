@@ -1,8 +1,11 @@
+
 <script>
+
 	import Header from './Header.svelte';
 	import '../app.css';
 
 	let { children } = $props();
+
 </script>
 
 <div class="app">
@@ -20,6 +23,7 @@
 </div>
 
 <style>
+		/*
 	.app {
 		display: flex;
 		flex-direction: column;
@@ -27,6 +31,7 @@
 	}
 
 	main {
+
 		flex: 1;
 		display: flex;
 		flex-direction: column;
@@ -53,5 +58,5 @@
 		footer {
 			padding: 12px 0;
 		}
-	}
+	}*/
 </style>

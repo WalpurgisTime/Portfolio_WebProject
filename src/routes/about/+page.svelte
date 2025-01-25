@@ -1,3 +1,4 @@
+<!--
 <svelte:head>
 	<title>About</title>
 	<meta name="description" content="About this app" />
@@ -24,3 +25,4 @@
 		using it with JavaScript disabled!
 	</p>
 </div>
+-->

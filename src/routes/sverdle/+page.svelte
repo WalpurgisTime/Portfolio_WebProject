@@ -1,3 +1,4 @@
+<!--
 <script>
 	import { enhance } from '$app/forms';
 	import { confetti } from '@neoconfetti/svelte';
@@ -408,3 +409,4 @@
 		}
 	}
 </style>
+-->
