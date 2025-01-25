@@ -19,7 +19,6 @@ body {
 	min-width: 100vw;
 	margin: 0;
 
-	overflow: hidden; /* Empêche le scroll */
 	background-attachment: fixed;
 	background-color: var(--color-bg-1);
 	background-size: 100vw 100vh;
