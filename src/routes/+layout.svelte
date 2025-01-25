@@ -1,6 +1,5 @@
 
 <script>
-
 	import Header from './Header.svelte';
 	import '../app.css';
 
@@ -11,19 +10,24 @@
 <div class="app">
 	<Header />
 
+
 	<main>
 		{@render children()}
 	</main>
 
+
 	<footer>
-		<p>
+
+		<!--p>
 			visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to learn about Corentin Jouan
-		</p>
+		</p-->
+
 	</footer>
+
 </div>
 
 <style>
-		/*
+
 	.app {
 		display: flex;
 		flex-direction: column;
@@ -58,5 +62,5 @@
 		footer {
 			padding: 12px 0;
 		}
-	}*/
+	}
 </style>

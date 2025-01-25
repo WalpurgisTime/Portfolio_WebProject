@@ -7,13 +7,9 @@
 	let container;
 	let model;
 	let waterMaterial;
-	let angle = 0;
-	let targetAngle = 0;
 
 	onMount(() => {
 		const scene = new THREE.Scene();
-		scene.background = new THREE.Color(0x87CEEB); // Set background color to sky blue
-
 		const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 		const renderer = new THREE.WebGLRenderer({ antialias: true });
 		renderer.setSize(window.innerWidth, window.innerHeight);
@@ -58,7 +54,7 @@
       color += sin(p.x * 10.0 + time) * 0.5 + 0.5;
       color += sin(p.y * 10.0 + time) * 0.5 + 0.5;
       color *= vWave;
-      gl_FragColor = vec4(0.0, 0.0, color, 1.0);
+      gl_FragColor = vec4(0.0, 0.0, color, 1.0); // Blue color
      }
     `
 			});
@@ -83,7 +79,7 @@
 		scene.add(directionalLight);
 
 		// Add ambient light to brighten the background
-		const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+		const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 		scene.add(ambientLight);
 
 		camera.position.set(0, 1.6, 3);
@@ -93,24 +89,10 @@
 			if (waterMaterial) {
 				waterMaterial.uniforms.time.value += 0.05; // Update time uniform
 			}
-			angle += (targetAngle - angle) * 0.1; // Smooth the angle change
-			const a = 5; // Semi-major axis
-			const b = 3; // Semi-minor axis
-			const x = a * Math.cos(angle);
-			const z = b * Math.sin(angle);
-			if (model) {
-				model.rotation.y = angle; // Rotate the model along the Y-axis
-				model.position.set(x, 0, z);
-			}
 			controls.update(); // Update controls
 			renderer.render(scene, camera);
 		};
 		animate();
-
-		// Add event listener for mouse wheel
-		window.addEventListener('wheel', (event) => {
-			targetAngle += event.deltaY * 0.01; // Adjust the speed as needed
-		});
 	});
 </script>
 
